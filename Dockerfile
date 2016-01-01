@@ -1,15 +1,17 @@
-FROM node:argon
+#FROM node:argon
+#RUN mkdir -p /usr/src/app
+#WORKDIR /usr/src/app
+#COPY package.json /usr/src/app/
+#RUN npm install
+#COPY . /usr/src/app
+#EXPOSE 8080
+#CMD [ "npm", "start" ]
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+FROM mhart/alpine-node:base
 
-# Install app dependencies
-COPY package.json /usr/src/app/
-RUN npm install
+RUN mkdir /project
+WORKDIR /project
 
-# Bundle app source
-COPY . /usr/src/app
+COPY . /project
 
-EXPOSE 8080
-CMD [ "npm", "start" ]
+ENTRYPOINT ["node", "server.js"]
