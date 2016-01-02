@@ -1,0 +1,15 @@
+resources:
+- name: kubernetes-cluster
+  type: container.v1.cluster
+  properties:
+    zone: us-central1-f
+    cluster:
+      name: kubernetes-cluster
+      description: Lots of machines are needed to serve all the dog pictures.
+      initialNodeCount: 3
+      nodeConfig:
+        oauthScopes:
+          - https://www.googleapis.com/auth/devstorage.read_only
+      masterAuth:
+        username: admin
+        password: supersecret
