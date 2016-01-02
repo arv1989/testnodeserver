@@ -14,9 +14,10 @@ ENV VERSION=v4.2.4 NPM_VERSION=2
 RUN mkdir /project
 WORKDIR /project
 
-COPY server.js server.js
-COPY node_modules node_modules
-COPY public public
-COPY views views
+COPY . /project/
+#COPY server.js server.js
+#COPY node_modules node_modules
+#COPY public public
+#COPY views views
 
 ENTRYPOINT ["node", "server.js"]
