@@ -22,5 +22,9 @@ app.get('/', function (req, res) {
   res.send('Hello world\n Version : '+versio);
 });
 
+app.get('/test1', function (req, res) {
+  res.send('Hello world\n test 1 Version : '+versio);
+});
+
 app.listen(PORT);
 console.log('Running on http://localhost:' + PORT);
