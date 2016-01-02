@@ -3,14 +3,17 @@
 #
 
 # PROJECT=$(shell gcloud config list project | awk 'FNR ==2 { print $$3 }')
-TAG_VERSION=default
-#TAG=gcr.io/$(PROJECT)/sukie:$(TAG_VERSION)
-TAG=arv1989/simplenodeserver:$(TAG_VERSION)
+V=default
+#TAG=gcr.io/$(PROJECT)/sukie:$(V)
+TAG=arv1989/simplenodeserver:$(V)
+LATEST_TAG=arv1989/simplenodeserver:latest
+
 NAME=simplenodeserver
 
 # build the docker image|
 build: deps
 	docker build --tag=$(TAG) .
+	docker build --tag=$(LATEST_TAG) .
 
 clean:
 	docker rmi $(TAG)
@@ -18,6 +21,7 @@ clean:
 # push the docker image up to the Google Container repository
 push:
 	docker push $(TAG)
+	docker push $(LATEST_TAG)
 
 # install all the node dependencies
 deps:
