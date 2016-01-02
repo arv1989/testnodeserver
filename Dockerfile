@@ -9,6 +9,8 @@
 
 FROM mhart/alpine-node:base
 
+ENV VERSION=v4.2.4 NPM_VERSION=2
+
 RUN mkdir /project
 WORKDIR /project
 
