@@ -7,7 +7,7 @@
 #EXPOSE 8080
 #CMD [ "npm", "start" ]
 
-FROM mhart/alpine-node:base
+FROM mhart/alpine-node:4
 
 ENV VERSION=v4.2.4 NPM_VERSION=2
 
