@@ -4,13 +4,14 @@ const express = require('express');
 
 // Constants
 const PORT = 8080;
+var versio = "nul"
 
 if (!process.env.VERSION){
     console.log("ERR: VERSION ENV Variable is not provided")
-    const VERS = "0.0"
+    versio = "0.0"
 }else{
     console.log("Listning to VERSION "+process.env.VERSION)
-    const VERS = process.env.VERSION
+    versio = process.env.VERSION
 
 }
 
@@ -18,7 +19,7 @@ if (!process.env.VERSION){
 // App
 const app = express();
 app.get('/', function (req, res) {
-  res.send('Hello world\n Version : '+VERS);
+  res.send('Hello world\n Version : '+versio);
 });
 
 app.listen(PORT);
